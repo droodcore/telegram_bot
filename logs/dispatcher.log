@@ -1,0 +1,17 @@
+2023-02-04 17:31:15 DEBUG TelegramBot:30 - hui
+2023-02-04 17:37:28 DEBUG TelegramBot:30 - test lombok
+2023-02-04 17:44:28 DEBUG TelegramBot:33 - sup
+2023-02-04 17:44:28 ERROR TelegramBot:46 - org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Unable to deserialize response
+2023-02-04 18:46:27 DEBUG TelegramBot:33 - check
+2023-02-04 18:46:28 ERROR TelegramBot:46 - org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Unable to deserialize response
+2023-02-04 18:48:31 DEBUG TelegramBot:33 - check
+2023-02-05 17:49:44 DEBUG UpdateProducerImpl:13 - check
+2023-02-05 17:50:54 DEBUG UpdateProducerImpl:13 - 
+2023-02-05 17:51:23 DEBUG UpdateProducerImpl:13 - 
+2023-02-05 17:52:01 ERROR UpdateController:36 - Recieved unsupported message type Update(updateId=573279844, message=null, inlineQuery=null, chosenInlineQuery=null, callbackQuery=null, editedMessage=Message(messageId=19, from=User(id=341387166, firstName=m, isBot=false, lastName=k, userName=droodcore, languageCode=ru, canJoinGroups=null, canReadAllGroupMessages=null, supportInlineQueries=null, isPremium=null, addedToAttachmentMenu=null), date=1675601005, chat=Chat(id=341387166, type=private, title=null, firstName=m, lastName=k, userName=droodcore, photo=null, description=null, inviteLink=null, pinnedMessage=null, stickerSetName=null, canSetStickerSet=null, permissions=null, slowModeDelay=null, bio=null, linkedChatId=null, location=null, messageAutoDeleteTime=null, hasPrivateForwards=null, HasProtectedContent=null, joinToSendMessages=null, joinByRequest=null), forwardFrom=null, forwardFromChat=null, forwardDate=null, text=check1, entities=null, captionEntities=null, audio=null, document=null, photo=null, sticker=null, video=null, contact=null, location=null, venue=null, animation=null, pinnedMessage=null, newChatMembers=[], leftChatMember=null, newChatTitle=null, newChatPhoto=null, deleteChatPhoto=null, groupchatCreated=null, replyToMessage=null, voice=null, caption=null, superGroupCreated=null, channelChatCreated=null, migrateToChatId=null, migrateFromChatId=null, editDate=1675601522, game=null, forwardFromMessageId=null, invoice=null, successfulPayment=null, videoNote=null, authorSignature=null, forwardSignature=null, mediaGroupId=null, connectedWebsite=null, passportData=null, forwardSenderName=null, poll=null, replyMarkup=null, dice=null, viaBot=null, senderChat=null, proximityAlertTriggered=null, messageAutoDeleteTimerChanged=null, isAutomaticForward=null, hasProtectedContent=null, webAppData=null, videoChatStarted=null, videoChatEnded=null, videoChatParticipantsInvited=null, videoChatScheduled=null), channelPost=null, editedChannelPost=null, shippingQuery=null, preCheckoutQuery=null, poll=null, pollAnswer=null, myChatMember=null, chatMember=null, chatJoinRequest=null)
+2023-02-05 19:44:12 DEBUG UpdateProducerImpl:21 - kek
+2023-02-05 20:34:39 DEBUG UpdateProducerImpl:21 - kek
+2023-02-05 20:39:46 DEBUG UpdateProducerImpl:21 - sup
+2023-02-05 20:40:49 DEBUG UpdateProducerImpl:21 - Hello from chat
+2023-02-15 13:29:38 DEBUG UpdateProducerImpl:21 - text
+2023-02-15 16:52:28 DEBUG UpdateProducerImpl:21 - sup

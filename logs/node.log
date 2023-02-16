@@ -1,0 +1,6 @@
+2023-02-05 20:34:56 DEBUG ConsumerServiceImpl:26 - NODE: text message received
+2023-02-05 20:39:46 DEBUG ConsumerServiceImpl:26 - NODE: text message received
+2023-02-05 20:40:49 DEBUG ConsumerServiceImpl:26 - NODE: text message received
+2023-02-15 13:29:38 DEBUG ConsumerServiceImpl:25 - NODE: text message received
+2023-02-15 13:44:47 DEBUG ConsumerServiceImpl:25 - NODE: text message received
+2023-02-15 16:52:28 DEBUG ConsumerServiceImpl:25 - NODE: text message received
