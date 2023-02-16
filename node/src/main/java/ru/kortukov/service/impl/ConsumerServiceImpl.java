@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import ru.kortukov.service.ConsumerService;
 import ru.kortukov.service.MainService;
-import ru.kortukov.service.ProducerService;
 
 import static ru.kortukov.model.RabbitQueue.*;
 
@@ -31,11 +30,13 @@ public class ConsumerServiceImpl implements ConsumerService {
     @RabbitListener(queues = DOC_MESSAGE_UPDATE)
     public void consumeDocMessageUpdates(Update update) {
         log.debug("NODE: doc message received");
+        mainService.processDocMessage(update);
     }
 
     @Override
     @RabbitListener(queues = PHOTO_MESSAGE_UPDATE)
     public void consumePhotoMessageUpdates(Update update) {
         log.debug("NODE: photo message received");
+        mainService.processPhotoMessage(update);
     }
 }

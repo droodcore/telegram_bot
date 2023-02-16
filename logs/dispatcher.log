@@ -15,3 +15,5 @@
 2023-02-05 20:40:49 DEBUG UpdateProducerImpl:21 - Hello from chat
 2023-02-15 13:29:38 DEBUG UpdateProducerImpl:21 - text
 2023-02-15 16:52:28 DEBUG UpdateProducerImpl:21 - sup
+2023-02-16 15:40:57 DEBUG UpdateProducerImpl:21 - 123
+2023-02-16 15:41:03 DEBUG UpdateProducerImpl:21 - /help
