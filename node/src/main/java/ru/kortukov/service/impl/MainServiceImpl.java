@@ -1,5 +1,6 @@
 package ru.kortukov.service.impl;
 
+import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -7,28 +8,29 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.User;
 import ru.kortukov.dao.AppUserDAO;
 import ru.kortukov.dao.RawDataDAO;
+import ru.kortukov.entity.AppDocument;
 import ru.kortukov.entity.AppUser;
 import ru.kortukov.entity.RawData;
+import ru.kortukov.exception.UploadFileException;
+import ru.kortukov.service.FileService;
 import ru.kortukov.service.MainService;
 import ru.kortukov.service.ProducerService;
+import ru.kortukov.service.enums.ServiceCommand;
 
 import static ru.kortukov.entity.enums.UserState.BASIC_STATE;
 import static ru.kortukov.entity.enums.UserState.WAIT_FOR_EMAIL_STATE;
-import static ru.kortukov.service.enums.ServiceCommands.*;
+import static ru.kortukov.service.enums.ServiceCommand.*;
 
 @Log4j
+@AllArgsConstructor
 @Service
 public class MainServiceImpl implements MainService {
 
     private final RawDataDAO rawDataDAO;
     private final ProducerService producerService;
     private final AppUserDAO appUserDAO;
+    private final FileService fileService;
 
-    public MainServiceImpl(RawDataDAO rawDataDAO, ProducerService producerService, AppUserDAO appUserDAO) {
-        this.rawDataDAO = rawDataDAO;
-        this.producerService = producerService;
-        this.appUserDAO = appUserDAO;
-    }
 
     @Override
     public void processTextMessage(Update update) {
@@ -39,7 +41,8 @@ public class MainServiceImpl implements MainService {
         var text = update.getMessage().getText();
         var output = "";
 
-        if (CANCEL.equals(text)) {
+        var serviceCommand = ServiceCommand.fromValue(text);
+        if (CANCEL.equals(serviceCommand)) {
             output = cancelProcess(appUser);
         } else if (BASIC_STATE.equals(userState)) {
             output = processServiceCommand(appUser, text);
@@ -65,9 +68,16 @@ public class MainServiceImpl implements MainService {
         if (isNotAllowToSendContent(chatId, appUser)) {
             return;
         }
-        //TODO add save the doc functionality
-        var answer = "Документ успешно загружен. Ссылка для скачивания: юрл";
-        sendAnswer(answer, chatId);
+        try {
+            AppDocument doc = fileService.processDoc(update.getMessage());
+            //TODO link generation
+            var answer = "Документ успешно загружен. Ссылка для скачивания: юрл";
+            sendAnswer(answer, chatId);
+        } catch (UploadFileException e) {
+            log.error(e);
+            String error = "К сожалению загрузка файла не удалась";
+            sendAnswer(error, chatId);
+        }
     }
 
     private boolean isNotAllowToSendContent(Long chatId, AppUser appUser) {
